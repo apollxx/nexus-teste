@@ -10,8 +10,8 @@ app.use(json());
 app.use(teste);
 app.use(cadastrarUsuario, verificarUsuario);
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Escutando na porta 8000!");
+app.listen(process.env.PORT, () => {
+    console.log(`Escutando na porta ${process.env.port}!`);
 })
 
 

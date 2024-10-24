@@ -1,5 +1,7 @@
 const mysql = require('mysql2');
 var con;
+const usuarioSchema = require("../domains/usuarios/model")
+
 
 
 function connectDatabase() {
@@ -13,12 +15,20 @@ function connectDatabase() {
         con.connect(function (err) {
             if (err) console.log(err);
             else {
+                // verificando se o database existe, caso não exista, é criado
                 con.query('CREATE DATABASE IF NOT EXISTS nexus', (err, result) => {
                     if (err) throw err;
                 });
+                // mudando a conexao para o database
                 con.changeUser({database: 'nexus'}, (err) => {
                     if (err) throw err;
                 });
+
+                // verificando se a tabela usario existe, se nao exister, é criada
+                con.query(usuarioSchema, (err, result) => {
+                        if(err) throw err;
+                    });
+
                 console.log("conectado ao banco de dados");
             }
 

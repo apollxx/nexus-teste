@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const jwt = require('jsonwebtoken');
 const con = require("../../../common/db");
 const router = Router();
 
@@ -10,7 +11,12 @@ router.get("/api/usuarios", (req, res) => {
         let msg = '';
         if (err) msg = "Dados Invalidos";
         else{
-            msg = {nome: result[0].nome}
+            const payload ={
+                id :  result[0].id,
+                nome: result[0].nome,
+                email: result[0].email
+            }
+            msg = jwt.sign(payload, process.env.JWT_KEY);
         }
         res.send(msg);
     })
