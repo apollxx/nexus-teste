@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 var con;
 
+
 function connectDatabase() {
     if (!con) {
         con = mysql.createConnection({
@@ -8,7 +9,6 @@ function connectDatabase() {
             port: process.env.STACKHERO_MYSQL_PORT,
             user: "root",
             password: process.env.STACKHERO_MYSQL_ROOT_PASSWORD
-
         });
         con.connect(function (err) {
             if (err) console.log(err);
