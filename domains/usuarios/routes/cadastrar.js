@@ -2,7 +2,7 @@ const { Router } = require("express");
 const con = require("../../../common/db");
 const router = Router();
 
-router.post("/api/usuarios", async (req, res) => {
+router.post("/api/usuarios/cadastrar", async (req, res) => {
     const { nome, email, senha } = req.body;
     if (!nome || !email || !senha) res.send("Dados invalidos")
     else {
