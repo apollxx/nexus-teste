@@ -11,12 +11,11 @@ router.get("/api/usuarios", (req, res) => {
         let msg = '';
         if (err) msg = "Dados Invalidos";
         else{
-            const payload ={
+            msg = {
                 id :  result[0].id,
                 nome: result[0].nome,
                 email: result[0].email
             }
-            msg = jwt.sign(payload, process.env.JWT_KEY);
         }
         res.send(msg);
     })
