@@ -11,7 +11,11 @@ router.post("/api/usuarios/cadastrar", async (req, res) => {
             let msg = ""
             if (err) msg = "erro ao criar usuario";
             else {
-                msg = "Usuario criado com sucesso"
+                msg = {
+                    id :  result.insertId,
+                    nome: nome,
+                    email: email
+                }
             }
             res.send(msg)
         });
