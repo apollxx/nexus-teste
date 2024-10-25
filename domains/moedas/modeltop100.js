@@ -1,4 +1,4 @@
-module.exports = moedasTop100Schema= 'CREATE TABLE IF NOT EXISTS `moedasTop100` '
+module.exports = moedasTop100Schema= 'CREATE TABLE IF NOT EXISTS `moedastop100` '
                     + '('
                     + '`id`  VARCHAR(255) PRIMARY KEY,'
                     + '`nome` VARCHAR(255) NOT NULL,'

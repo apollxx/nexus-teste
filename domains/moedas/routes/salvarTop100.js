@@ -9,7 +9,7 @@ const geckoHeaders={
 
 router.post("/api/moedas/salvartop100", async(req, res) => {
     const moedas = await axios.get(url,{headers:geckoHeaders});
-    const sql = "INSERT INTO moedasTop100 (id, nome, market_cap_rank) VALUES ?"
+    const sql = "INSERT INTO moedastop100 (id, nome, market_cap_rank) VALUES ?"
     const values = []
     moedas.data.forEach(moeda => {
         let tempArray = [moeda.id,moeda.name, moeda.market_cap_rank];
