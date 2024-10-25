@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 var con;
 const usuarioSchema = require("../domains/usuarios/model")
+const moedasTop100Schema = require("../domains/moedas/modeltop100")
 
 
 
@@ -28,6 +29,11 @@ function connectDatabase() {
                 con.query(usuarioSchema, (err, result) => {
                         if(err) throw err;
                     });
+                
+                // verificando se a tabela top100Moedas existe, se nao exister, é criada
+                con.query(moedasTop100Schema, (err, result) => {
+                    if(err) throw err;
+                });
 
                 console.log("conectado ao banco de dados");
             }
