@@ -7,7 +7,7 @@ router.post("/api/usuarios/cadastrar", async (req, res) => {
     if (!nome || !email || !senha) res.send("Dados invalidos")
     else {
         var sql = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`;
-        await con.query(sql, (err, result) => {
+        con.query(sql, (err, result) => {
             let msg = ""
             if (err) msg = "erro ao criar usuario";
             else {
