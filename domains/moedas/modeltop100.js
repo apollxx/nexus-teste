@@ -2,5 +2,6 @@ module.exports = moedasTop100Schema= 'CREATE TABLE IF NOT EXISTS `moedastop100` 
                     + '('
                     + '`id`  VARCHAR(255) PRIMARY KEY,'
                     + '`nome` VARCHAR(255) NOT NULL,'
-                    + '`market_cap_rank` INT(2) NOT NULL'
+                    + '`market_cap_rank` INT(2) NOT NULL,'
+                    + '`image` VARCHAR(255)'
                     + ')'
