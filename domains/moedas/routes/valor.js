@@ -1,9 +1,8 @@
 const { Router } = require("express");
-const con = require("../../../common/db");
 const router = Router();
 const axios = require('axios');
 const geckoHeaders={
-    "x-cg-demo-api-key":"CG-nKzrmo8tdMq1jigXpJKsdHnx"
+    "x-cg-demo-api-key": process.env.geckoKey
 }
 
 router.get("/api/moedas/valor/:moeda", async(req, res) => {

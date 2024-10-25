@@ -4,7 +4,7 @@ const router = Router();
 const axios = require('axios');
 const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc"
 const geckoHeaders={
-    "x-cg-demo-api-key":"CG-nKzrmo8tdMq1jigXpJKsdHnx"
+    "x-cg-demo-api-key": process.env.geckoKey
 }
 
 router.post("/api/moedas/salvartop100", async(req, res) => {

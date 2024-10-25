@@ -2,6 +2,7 @@ const mysql = require('mysql2');
 var con;
 const usuarioSchema = require("../domains/usuarios/model")
 const moedasTop100Schema = require("../domains/moedas/modeltop100")
+const conversoesSchema = require("../domains/conversoes/model")
 
 
 
@@ -21,18 +22,23 @@ function connectDatabase() {
                     if (err) throw err;
                 });
                 // mudando a conexao para o database
-                con.changeUser({database: 'nexus'}, (err) => {
+                con.changeUser({ database: 'nexus' }, (err) => {
                     if (err) throw err;
                 });
 
                 // verificando se a tabela usario existe, se nao exister, é criada
                 con.query(usuarioSchema, (err, result) => {
-                        if(err) throw err;
-                    });
-                
+                    if (err) throw err;
+                });
+
                 // verificando se a tabela top100Moedas existe, se nao exister, é criada
                 con.query(moedasTop100Schema, (err, result) => {
-                    if(err) throw err;
+                    if (err) throw err;
+                });
+
+                // verificando se a tabela conversoes existe, se nao exister, é criada
+                con.query(conversoesSchema, (err, result) => {
+                    if (err) throw err;
                 });
 
                 console.log("conectado ao banco de dados");
