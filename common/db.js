@@ -12,7 +12,8 @@ function connectDatabase() {
             host: process.env.STACKHERO_MYSQL_HOST,
             port: process.env.STACKHERO_MYSQL_PORT,
             user: "root",
-            password: process.env.STACKHERO_MYSQL_ROOT_PASSWORD
+            password: process.env.STACKHERO_MYSQL_ROOT_PASSWORD,
+            ssl: {rejectUnauthorized: false},
         });
         con.connect(function (err) {
             if (err) console.log(err);
