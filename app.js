@@ -1,5 +1,4 @@
 const express = require("express");
-const { teste } = require("./domains/usuarios/routes/test");
 const { cadastrarUsuario } = require("./domains/usuarios/routes/cadastrar");
 const {verificarUsuario} = require("./domains/usuarios/routes/logar");
 const {salvarTop100} = require("./domains/moedas/routes/salvarTop100")
@@ -13,7 +12,6 @@ const con = require("./common/db"); // testando conexao com o banco de dados ant
 
 const app = express();
 app.use(json());
-app.use(teste);
 app.use(cadastrarUsuario, verificarUsuario, salvarTop100, buscartop100, valor, buscarConversoesUsuario, inserirConversao, favoritarMoeda);
 
 app.listen(process.env.PORT, () => {
