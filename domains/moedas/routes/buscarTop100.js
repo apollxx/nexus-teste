@@ -12,7 +12,8 @@ router.get("/api/moedas/buscartop100/:usuarioid", (req, res) => {
       if (err) res.send(err);
       result1.forEach((res1,index) => {
         const encontrar = result2.find(ele => ele.moedaid == res1.id);
-        if(encontrar) result1[index] = Object.assign(result1[index],{favorito: "s"});
+        if(encontrar) {result1[index] = Object.assign(result1[index],{favorito: "s"});}
+        else{result1[index] = Object.assign(result1[index],{favorito: "n"})}
       })
       res.send(result1)
     })
