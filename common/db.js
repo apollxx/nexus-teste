@@ -3,8 +3,7 @@ var con;
 const usuarioSchema = require("../domains/usuarios/model")
 const moedasTop100Schema = require("../domains/moedas/modeltop100")
 const conversoesSchema = require("../domains/conversoes/model")
-
-
+const favoritasSchema = require("../domains/favoritas/model")
 
 function connectDatabase() {
     if (!con) {
@@ -13,7 +12,7 @@ function connectDatabase() {
             port: process.env.STACKHERO_MYSQL_PORT,
             user: "root",
             password: process.env.STACKHERO_MYSQL_ROOT_PASSWORD,
-            ssl: {rejectUnauthorized: false},
+            ssl: { rejectUnauthorized: false },
         });
         con.connect(function (err) {
             if (err) console.log(err);
@@ -39,6 +38,11 @@ function connectDatabase() {
 
                 // verificando se a tabela conversoes existe, se nao exister, é criada
                 con.query(conversoesSchema, (err, result) => {
+                    if (err) throw err;
+                });
+
+                // verificando se a tabela favoritas existe, se nao exister, é criada
+                con.query(favoritasSchema, (err, result) => {
                     if (err) throw err;
                 });
 
